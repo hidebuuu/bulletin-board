@@ -1,0 +1,85 @@
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="search-result bg-gray">
+          <h2>お知らせ一覧</h2>
+          <strong>表示条件</strong>
+          <select name="search">
+            <option value="A">全て表示</option>
+            <option value="B">掲示板作成情報のみ表示</option>
+            <option value="O">コメント情報のみ表示</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="product-grid-list">
+          <div class="row mt-30">
+            <div class="col-sm-12" style="overflow: scroll; height: 400px;">
+              <div class="product-item bg-light">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="widget dashboard-container my-adslist">
+                      <table class="table product-dashboard-table">
+                        <tr>
+                          <td class="product-thumb">
+                            <%= image_tag "sample.jpg", class:'rounded-circle', width:'50px' %>
+                          </td>
+                          <td class="product-details">
+                            <h3 class="title", style='display: inline;'>
+                              あなたの掲示板にコメントがつきました
+                            </h3>
+                            <p style='display: inline; float:right;'>
+                              2018/01/20
+                            </p>
+                            <div class="notification_text">
+                              コメント: コメントサンプル
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="product-thumb">
+                            <%= image_tag 'sample.jpg', class:'rounded-circle', width:'50px' %>
+                          </td>
+                          <td class="product-details">
+                            <h3 class="title", style='display: inline;'>
+                              新しい掲示板が作成されました
+                            </h3>
+                            <p style='display: inline; float:right;'>
+                              2018/01/20
+                            </p>
+                            <div class="notification_text">
+                              タイトル: 掲示板タイトルサンプル
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="product-thumb">
+                            <%= image_tag 'sample.jpg', class:'rounded-circle', width:'50px' %>
+                          </td>
+                          <td class="product-details">
+                            <h3 class="title", style='display: inline;'>
+                              あなたの掲示板にコメントがつきました
+                            </h3>
+                            <p style='display: inline; float:right;'>
+                              2018/01/20
+                            </p>
+                            <div class="notification_text">
+                              コメント: コメントサンプル
+                            </div>
+                          </td>
+                        </tr>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
