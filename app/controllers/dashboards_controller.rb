@@ -1,3 +1,5 @@
-class DashboardsController < ApplicationController
-  def index; end
+class DashboardsController < GeneralController
+
+  def index
+  end
 end
