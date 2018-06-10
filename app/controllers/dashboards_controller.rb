@@ -1,5 +1,3 @@
 class DashboardsController < GeneralController
-
-  def index
-  end
+  def index; end
 end
