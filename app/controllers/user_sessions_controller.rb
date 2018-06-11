@@ -1,24 +1,21 @@
 class UserSessionsController < GeneralController
   skip_before_action :require_login, only: %i[new create destroy]
+  layout "before_login"
 
   def new
-    render layout: 'before_login'
   end
 
   def create
     @user = login(params[:email], params[:password])
     if @user.present?
-      flash[:success] = 'ログインしました！'
-      redirect_to root_path
+      redirect_to root_path, success: 'ログインしました'
     else
-      flash.now[:danger] = 'ログインに失敗しました'
-      render :new
+      redirect_to login_path, danger: "ログインに失敗しました。"
     end
   end
 
   def destroy
     logout
-    flash.now[:info] = 'ログアウトしました。'
-    render :new
+    redirect_to login_path, info: 'ログアウトしました。'
   end
 end
