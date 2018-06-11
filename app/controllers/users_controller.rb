@@ -4,6 +4,7 @@ class UsersController < GeneralController
   def new
     @user = User.new
     render layout: 'before_login'
+  end
 
   def create
     @user = User.new(user_params)
