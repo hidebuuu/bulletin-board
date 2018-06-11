@@ -3,22 +3,22 @@
     <h3 class="widget-header user">ユーザー登録</h3>
     <%= form_for @user do |f| %>
       <div class="form-group">
-        <%= f.label :last_name,"姓" %>
+        <%= f.label :last_name, "姓" %>
         <%= f.text_field :last_name , class:"form-control" %>
       </div>
       <div class="form-group">
-        <%= f.label :first_name,"名" %>
+        <%= f.label :first_name, "名" %>
         <%= f.text_field :first_name, class:"form-control" %>
       </div>
       <div class="form-group">
-        <%= f.label :email ,"メールアドレス"%>
+        <%= f.label :email , "メールアドレス"%>
         <%= f.text_field :email, class:"form-control" %>
       </div>
       <div class="form-group">
         <%= f.label :image ,"プロフィール画像" %>
         <%= f.file_field :image , class:"form-control-file d-inline mt15" %>
         <div class='mt15'>
-          <%= image_tag "sample.jpg" , width: '150' , height: '150' , class: 'img-responsize' , alt: 'sample_image' %>
+          <%= image_tag "sample.jpg", class:'img-responsize' , size: '150x150', alt:'sample_image' %>
         </div>
       </div>
       <div class="form-group">
@@ -29,11 +29,11 @@
         <%= f.label :password_confimation, "パスワード確認" %>
         <%= f.password_field :password_confimation , class:"form-control" %>
       </div>
-      <%= f.submit "送信", class: "btn btn-transparent" %>
+      <%= f.submit "送信", class:"btn btn-transparent" %>
   </div>
   <% end %>
   <div class='text-center'>
-    <%= link_to "ログインはこちら" , "/login" , class: "mr15" %>
+    <%= link_to "ログインはこちら" , login_path , class: "mr15" %>
     <%= link_to "パスワードをお忘れの方はこちら" , "#" %>
   </div>
 </div>
