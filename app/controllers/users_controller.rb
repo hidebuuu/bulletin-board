@@ -9,10 +9,10 @@ class UsersController < GeneralController
   def create
     @user = User.new(user_params)
     if @user.save
-      flash.now[:success] = "会員登録が完了しました！"
-      render "user_sessions/new"
+      flash.now[:success] = '会員登録が完了しました！'
+      render 'user_sessions/new'
     else
-      flash.now[:danger] = "もう一度入力してください。"
+      flash.now[:danger] = 'もう一度入力してください。'
       render :new
     end
   end

@@ -8,17 +8,17 @@ class UserSessionsController < GeneralController
   def create
     @user = login(params[:email], params[:password])
     if @user.present?
-      flash[:success] = "ログインしました！"
-      redirect_to root_path 
+      flash[:success] = 'ログインしました！'
+      redirect_to root_path
     else
-      flash.now[:danger] = "ログインに失敗しました"
+      flash.now[:danger] = 'ログインに失敗しました'
       render :new
     end
   end
 
   def destroy
     logout
-    flash.now[:info] = "ログアウトしました。"
+    flash.now[:info] = 'ログアウトしました。'
     render :new
   end
 end
