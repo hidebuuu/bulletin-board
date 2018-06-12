@@ -2,7 +2,7 @@ class UserDecorator < ApplicationDecorator
   delegate_all
 
   def full_name
-    '#{last_name} #{first_name}'
+    "#{last_name} #{first_name}"
   end
 
   # Define presentation-specific methods here. Helpers are accessed through
@@ -13,5 +13,4 @@ class UserDecorator < ApplicationDecorator
   #       object.created_at.strftime("%a %m/%d/%y")
   #     end
   #   end
-
 end
