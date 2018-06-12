@@ -1,3 +1,5 @@
 class DashboardsController < GeneralController
-  def index; end
+  def index
+    @user = User.find_by(params[:id]).decorate
+  end
 end
