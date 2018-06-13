@@ -4,12 +4,12 @@
       <div class="card">
         <div class="thumb-content">
           <%= link_to "#" do %>
-            <%= image_tag "#{board.image}", class:'card-img-top img-fluid', width:'300', height:'200' %>
+            <%= image_tag "#{ board.image }", class:'card-img-top img-fluid', size:'300x200' %>
           <% end %>
         </div>
         <div class="card-body">
           <h4 class="card-title" style='display: inline;'>
-            <%= link_to "#{board.title}" , "#" %>
+            <%= link_to "#{ board.title }" , "#" %>
           </h4>
           <div>
             <div class="product-ratings" style='display: inline; float: right;'>
