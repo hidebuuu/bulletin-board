@@ -21,6 +21,6 @@ class BoardsController < GeneralController
   private
 
   def board_params
-    params.require(:board).permit(:title, :description,:image).merge(user_id: current_user.id) 
+    params.require(:board).permit(:title, :description, :image).merge(user_id: current_user.id)
   end
 end
