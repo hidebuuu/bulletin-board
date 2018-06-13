@@ -1,3 +1,4 @@
+
 <div class="advance-search">
   <form>
     <div class="row">
@@ -12,7 +13,10 @@
 </div>
 
 <!-- 掲示板一覧 -->
-  <%= render 'shared/board.contents' %>
+<div class="row mt15">
+  <% @boards.each do |board| %>
+  <%= render 'shared/board_contents', board: board %>
+  <% end %>
 
 <!-- ページネーション -->
 <div class='mb15'>
