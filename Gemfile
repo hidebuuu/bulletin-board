@@ -58,3 +58,4 @@ gem 'sass-rails'
 gem "font-awesome-rails"
 gem 'sorcery'
 gem 'draper'
+gem "carrierwave"
