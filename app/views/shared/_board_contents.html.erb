@@ -1,0 +1,44 @@
+
+<div class="col-sm-12 col-lg-3">
+    <div class="product-item bg-light">
+      <div class="card">
+        <div class="thumb-content">
+          <%= link_to "#" do %>
+            <%= image_tag "#{ board.image }", class:'card-img-top img-fluid', size:'300x200' %>
+          <% end %>
+        </div>
+        <div class="card-body">
+          <h4 class="card-title" style='display: inline;'>
+            <%= link_to "#{ board.title }" , "#" %>
+          </h4>
+          <div>
+            <div class="product-ratings" style='display: inline; float: right;'>
+              <%= link_to "#", class:'selected', style:'font-size: 16px;' do %>
+                <i class='fa fa-star'></i>
+              <% end %>
+            </div>
+          </div>
+          <div class='edit_board_btn mr10' style='display: inline; float: right;'>
+            <%= link_to "#" do %>
+              <i class='fas fa-trash-alt mr10' aria-hidden='true'></i>
+            <% end %>
+            <%= link_to "#" do %>
+              <i class='fas fa-pencil-alt'></i>
+            <% end %>
+          </div>
+          <ul class="list-inline product-meta">
+            <li class="list-inline-item">
+              <%= link_to "#" do %>
+                <i class='far fa-user'><%= board.user.decorate.full_name %>"</i>
+              <% end %>
+            </li>
+            <li class="list-inline-item">
+              <i class="far fa-calendar-alt"></i>
+              15th March
+            </li>
+          </ul>
+          <p class="card-text"><%= board.description %></p>
+        </div>
+      </div>
+    </div>
+  </div>

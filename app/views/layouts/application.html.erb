@@ -9,8 +9,10 @@
 
   <body>
     <%= render 'shared/header' %>
-    <%= render 'shared/flash_message' %>
-    <%= yield %>
+    <div class='container'>
+      <%= render 'shared/flash_message' %>
+      <%= yield %>
+    </div>
     <%= render 'shared/footer' %>
   </body>
 </html>
