@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 20180612104206) do
     t.datetime "updated_at",  null: false
     t.string   "title"
     t.integer  "user_id"
+
+    add_index :comments, :user_id
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
