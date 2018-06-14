@@ -1,10 +1,10 @@
 ja:
-    application:
-        bulletin_board: 掲示板
-        bulletin_board_list: 掲示板一覧
-        create_bulletin_board: 掲示板作成
-        follow: フォロー
-        follow_list: フォロー一覧
-        edit_profile: プロフィール編集
-        logout: ログアウト
-        home: ホーム
+　application:
+   bulletin_board: 掲示板
+   bulletin_board_list: 掲示板一覧
+   create_bulletin_board: 掲示板作成
+   follow: フォロー
+   follow_list: フォロー一覧
+   edit_profile: プロフィール編集
+   logout: ログアウト
+   home: ホーム
