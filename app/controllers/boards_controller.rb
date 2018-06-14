@@ -11,9 +11,9 @@ class BoardsController < GeneralController
   def create
     @board = Board.new(board_params)
     if @board.save
-      redirect_to boards_path, success: '掲示板の作成が完了しました'
+      redirect_to boards_path, success: t('.success')
     else
-      flash.now[:danger] = 'エラーが発生したため、掲示板を作成できません'
+      flash.now[:danger] = t('.danger')
       render :new
     end
   end

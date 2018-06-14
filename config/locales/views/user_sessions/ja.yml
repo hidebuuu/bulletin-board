@@ -1,0 +1,19 @@
+ja:
+    user_sessions:
+      new:
+        form_title: ログイン
+        email: メールアドレス
+        password: パスワード
+        new_registration: 新規会員登録はこちら
+        forget_password: パスワードをお忘れの方はこちら
+        submit: ログイン
+
+
+      create:
+        success: ログインしました。
+        danger: ログインに失敗しました。
+
+
+
+      destroy:
+        info: ログアウトしました。

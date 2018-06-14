@@ -1,0 +1,25 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー情報
+      board: 掲示板内容
+    attributes:
+      user:
+        id: ID
+        created_at: 登録日時
+        updated_at: 更新日時
+        last_name: 姓
+        first_name: 名
+        email: メールアドレス
+        crypted_password: パスワード
+        image: プロフィール画像
+        password: パスワード
+        password_confimation: パスワード確認
+        submit: 送信
+      board:
+        id: ID
+        title: タイトル
+        description: 説明
+        image: 画像
+        submit: 送信
+
