@@ -1,10 +1,10 @@
 <%= form_for @board do |f| %>
   <div class="form-group">
-    <%= f.label :title, "タイトル",class:'control-label required' %>
+    <%= f.label :title , class:'control-label required' %>
     <%= f.text_field :title , class:"form-control" %>
   </div>
   <div class="form-group">
-    <%= f.label :description, "説明文",class:'control-label required' %>
+    <%= f.label :description , class:'control-label required' %>
     <%= f.text_field :description , class:"form-control", rows:'10', height: '200px' %>
     </div>
     <div class="form-group choose-file">
@@ -13,5 +13,5 @@
         <%= image_tag "sample.jpg" , size:'300x200' , class:'img-responsive' %>
       </div>
     </div>
-    <%= f.submit "送信", class:"btn btn-transparent" %>
+    <%= f.submit t('boards.new.submit'), class:"btn btn-transparent" %>
   <% end %>

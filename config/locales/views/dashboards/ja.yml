@@ -1,0 +1,13 @@
+ja:
+　dashboards:
+　　index:
+　　　serch: 検索
+　　　notice_list: お知らせ一覧
+　　　display_condition: 表示条件
+　　　show_all: 全て表示
+　　　bulletin_board: 掲示板作成情報のみ表示
+　　　comment_only: コメント情報のみ表示
+　　　notice: あなたの掲示板にコメントがつきました
+　　　comment_sample: コメント：コメントサンプル
+　　　new_bunlletin_board: 新しい掲示板が作成されました。
+　　　title_sumple:  タイトル：掲示板タイトルサンプル

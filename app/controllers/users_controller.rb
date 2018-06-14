@@ -9,9 +9,9 @@ class UsersController < GeneralController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to login_path, success: '会員登録が完了しました。'
+      redirect_to login_path, success: t('.success')
     else
-      flash.now[:danger] = 'もう一度入力してください。'
+      flash.now[:danger] = t('.danger')
       render :new
     end
   end

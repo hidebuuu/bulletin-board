@@ -3,12 +3,12 @@
     <div class="row">
       <div class="col-md-12">
         <div class="search-result bg-gray">
-          <h2>お知らせ一覧</h2>
-          <strong>表示条件</strong>
+          <h2><%= t('.notice_list') %></h2>
+          <strong><%= t('.display_condition') %></strong>
           <select name="search">
-            <option value="A">全て表示</option>
-            <option value="B">掲示板作成情報のみ表示</option>
-            <option value="O">コメント情報のみ表示</option>
+            <option value="A"><%= t('.show_all') %></option>
+            <option value="B"><%= t('.bulletin_board') %></option>
+            <option value="O"><%= t('.comment_only') %></option>
           </select>
         </div>
       </div>
@@ -29,13 +29,13 @@
                           </td>
                           <td class="product-details">
                             <h3 class="title", style='display: inline;'>
-                              あなたの掲示板にコメントがつきました
+                              <%= t('.notice') %>
                             </h3>
                             <p style='display: inline; float:right;'>
                               2018/01/20
                             </p>
                             <div class="notification_text">
-                              コメント: コメントサンプル
+                              <%= t('.comment_sample') %>
                             </div>
                           </td>
                         </tr>
@@ -45,13 +45,13 @@
                           </td>
                           <td class="product-details">
                             <h3 class="title", style='display: inline;'>
-                              新しい掲示板が作成されました
+                              <%= t('.new_bunlletin_board') %>
                             </h3>
                             <p style='display: inline; float:right;'>
                               2018/01/20
                             </p>
                             <div class="notification_text">
-                              タイトル: 掲示板タイトルサンプル
+                              <%= t('.title_sumple') %>
                             </div>
                           </td>
                         </tr>
@@ -61,13 +61,13 @@
                           </td>
                           <td class="product-details">
                             <h3 class="title", style='display: inline;'>
-                              あなたの掲示板にコメントがつきました
+                              <%= t('.notice') %>
                             </h3>
                             <p style='display: inline; float:right;'>
                               2018/01/20
                             </p>
                             <div class="notification_text">
-                              コメント: コメントサンプル
+                              <%= t('.comment_sample') %>
                             </div>
                           </td>
                         </tr>
