@@ -1,16 +1,18 @@
 ja:
-　users:
-　　new:
-　　　title: 新規登録画面
-　　　last_name: 姓
-　　　first_name: 名
-　　　email: メールアドレス
-　　　image: プロフィール画像
-　　　password: パスワード
-　　　password_confimation: パスワード確認
-　　　submit: 送信
-　　　login: ログインはこちら
-　　　forget_password: パスワードをお忘れの方はこちら
-　　create:
-     success: 会員登録が完了しました。
-     danger: もう一度入力してください。
+  users:
+    new:
+      title: 新規登録画面
+      last_name: 姓
+      first_name: 名
+      email: メールアドレス
+      image: プロフィール画像
+      password: パスワード
+      password_confimation: パスワード確認
+      submit: 送信
+      login: ログインはこちら
+      forget_password: パスワードをお忘れの方はこちら
+      new_registration: 新規会員登録はこちら
+      forget_password: パスワードをお忘れの方はこちら
+    create:
+      success: 会員登録が完了しました。
+      danger: もう一度入力してください。

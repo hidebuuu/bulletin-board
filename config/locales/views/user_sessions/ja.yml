@@ -7,9 +7,8 @@ ja:
       new_registration: 新規会員登録はこちら
       forget_password: パスワードをお忘れの方はこちら
       submit: ログイン
-      create:
+    create:
       success: ログインしました。
       danger: ログインに失敗しました。
-      destroy:
+    destroy:
       info: ログアウトしました。
-      
