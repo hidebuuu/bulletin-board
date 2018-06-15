@@ -2,9 +2,9 @@ class CommentsController < GeneralController
 
   def create
     @board = Board.find_by(id: params[:board_id])
-    @comments = @board.comments.build(comment_params)
+    @comment = @board.comments.new(comment_params)
     if @comments.save
-      redirect_to board_path(id: params[:board_id])
+      redirect_to board_path(@comment.board)
     end
   end
 
