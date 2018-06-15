@@ -54,8 +54,9 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'bootstrap', '~> 4.0.0.alpha3'
 gem 'bootstrap-sass'
-gem 'sass-rails'
-gem "font-awesome-rails"
-gem 'sorcery'
-gem 'draper'
 gem 'carrierwave'
+gem 'draper'
+gem "font-awesome-rails"
+gem 'kaminari'
+gem 'sass-rails'
+gem 'sorcery'
