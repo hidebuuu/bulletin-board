@@ -14,13 +14,15 @@
             <% end %>
           </div>
         </div>
-        <div class='edit_board_btn mr10' style='display: inline; float: right;'>
-          <%= link_to '#' do %>
-            <i class='fas fa-trash mr10'></i>
+        <% if @board.user_id == @current_user.id %>
+          <div class='edit_board_btn mr10' style='display: inline; float: right;'>
+            <%= link_to board_path, method: :delete, data: { confirm: '本当に消すの？' } do %>
+              <i class='fa fa-trash mr10'></i>
+            <% end %>
+          <%= link_to edit_board_path do %>
+            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
           <% end %>
-          <%= link_to '#' do %>
-            <i class='fas fa-pencil-alt'></i>
-          <% end %>
+        <% end %>
         </div>
         <ul class="list-inline">
           <li class="list-inline-item">by <%= link_to @board.user.decorate.full_name, "#" %></li>
