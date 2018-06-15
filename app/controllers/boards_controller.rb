@@ -34,9 +34,9 @@ class BoardsController < GeneralController
     @board.update(board_params)
 
     if @board.save
-      redirect_to boards_path, success: "投稿内容を編集しました。"
+      redirect_to boards_path, success: '投稿内容を編集しました。'
     else
-      flash.now[:danger] = "もう一度入力してください。"
+      flash.now[:danger] = 'もう一度入力してください。'
       render :new
     end
   end
@@ -44,7 +44,7 @@ class BoardsController < GeneralController
   def destroy
     @board = Board.find_by(id: params[:id])
     @board.destroy
-    flash[:success] = "投稿を削除しました"
+    flash[:success] = '投稿を削除しました'
     redirect_to boards_path, success: "掲示板: #{@board.title}の削除が完了しました"
   end
 
@@ -55,9 +55,9 @@ class BoardsController < GeneralController
   end
 
   def ensure_correct_user
-    @board = Board.find_by(id:params[:id])
+    @board = Board.find_by(id: params[:id])
     if @board.user_id != @current_user.id
-      redirect_to boards_path, danger: "権限がありません"
-   end
+      redirect_to boards_path, danger: '権限がありません'
+    end
   end
 end
