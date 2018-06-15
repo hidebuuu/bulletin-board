@@ -17,24 +17,7 @@
   <% @boards.each do |board| %>
     <%= render 'shared/board_contents', board: board %>
   <% end %>
-
-<!-- ページネーション -->
-<div class='mb15'>
-  <nav>
-    <ul class='pagination'>
-      <li class='page-item active'>
-        <a class='page-link'>1</a>
-      </li>
-      <li class='page-item'>
-        <a rel='next' class='page-link' href='#'>2</a>
-      </li>
-      <li class='page-item'>
-        <a rel='next' class='page-link' href='#'>Next</a>
-      </li>
-      <li class='page-item'>
-        <a rel='next' class='page-link' href='#'>Last</a>
-      </li>
-    </ul>
-  </nav>
 </div>
 
+<!-- ページネーション -->
+<%= paginate @boards %>

@@ -1,0 +1,73 @@
+<div class="col-md-10 offset-md-1 col-lg-10 offset-lg-1">
+  <!-- 掲示板内容 -->
+  <article class="single-post">
+    <div class='row'>
+      <div class='col-md-3'>
+        <%= image_tag @board.image %>
+      </div>
+      <div class='col-md-9'>
+        <h3 style='display: inline;'><%= @board.title %>'</h3>
+        <div>
+          <div class="product-ratings" style='display: inline; float: right;'>
+            <%= link_to '#', class:'selected' do %>
+              <i class='fas fa-star'></i>
+            <% end %>
+          </div>
+        </div>
+        <div class='edit_board_btn mr10' style='display: inline; float: right;'>
+          <%= link_to '#' do %>
+            <i class='fas fa-trash mr10'></i>
+          <% end %>
+          <%= link_to '#' do %>
+            <i class='fas fa-pencil-alt'></i>
+          <% end %>
+        </div>
+        <ul class="list-inline">
+          <li class="list-inline-item">by <a href='#'><%= @board.user.decorate.full_name %></a></li>
+          <li class="list-inline-item">15th January</li>
+        </ul>
+      </div>
+    </div>
+    <p> <%= @board.description %></p>
+  </article>
+  <!-- コメントフォーム -->
+  <%= render 'shared/comment' %>
+  <!-- コメントエリア -->
+  <% @comments.each do |comment| %>
+  <div id='comment_area'>
+    <div class="widget dashboard-container my-adslist" id="comment<%= comment.id %>">
+      <table class="table product-dashboard-table">
+        <tr>
+          <td class="product-thumb">
+            <%= image_tag 'sample.jpg' , class:'rounded-circle', width:'50px' %>
+          </td>
+          <td class="product-details">
+            <h3 class="title"><%= comment.user.decorate.full_name %></h3>
+            <div class="comment_text">
+              <%= comment.content %>
+            </div>
+          </td>
+          <% if comment.user_id == current_user.id %>
+          <td class="action" data-title="Action">
+            <ul class="list-inline justify-content-center" style='float: right;'>
+              <li class="list-inline-item edit_comment_btn">
+                <%= button_tag  type:'button' , class:'edit' do %>
+                  <i class='fa fa-clipboard'></i>
+                <% end %>
+              </li>
+              <li class="list-inline-item">
+                <%= link_to '#' , class: 'delete' do %>
+                  <i class='fa fa-trash'></i>
+                <% end %>
+          <% end %>
+              </li>
+            </ul>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <% end %>
+  <!-- ページネーション -->
+  <%= paginate @comments %>
+
