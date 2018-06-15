@@ -1,0 +1,9 @@
+<div class="block comment">
+  <h4>投稿する</h4>
+  <%=form_for [@board, @comment] do |f| %>
+    <div class='form-group mb-30'>
+       <%= f.text_area :content , class:"form-control", placeholder: 'コメント内容', rows: '4'  %>
+    </div>
+    <%= f.submit :送信する , class:"btn btn-transparent", style:'padding: 5px 10px;' %>
+  <% end %>
+</div>
