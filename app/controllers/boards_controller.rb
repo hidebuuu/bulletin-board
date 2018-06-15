@@ -1,8 +1,7 @@
 class BoardsController < GeneralController
 
   def index
-    @boards = Board.all.order(created_at: 'desc')
-    @boards = Board.page(params[:page]).per(5)
+    @boards = Board.all.order(created_at: 'desc').page(params[:page]).per(5)
   end
 
   def new
@@ -12,8 +11,7 @@ class BoardsController < GeneralController
   def show
     @board = Board.find_by(id: params[:id])
     @comment = Comment.new
-    @comments = @board.comments.all.order(created_at: :desc)
-    @comments = @board.comments.page(params[:page]).per(5)
+    @comments = @board.comments.all.order(created_at: :desc).page(params[:page]).per(5)
   end
 
   def create
