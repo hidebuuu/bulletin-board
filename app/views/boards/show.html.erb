@@ -23,7 +23,7 @@
           <% end %>
         </div>
         <ul class="list-inline">
-          <li class="list-inline-item">by <a href='#'><%= @board.user.decorate.full_name %></a></li>
+          <li class="list-inline-item">by <%= link_to @board.user.decorate.full_name, "#" %></li>
           <li class="list-inline-item">15th January</li>
         </ul>
       </div>
