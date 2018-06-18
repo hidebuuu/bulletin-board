@@ -14,7 +14,7 @@
             <% end %>
           </div>
         </div>
-        <% if @board.user_id == @current_user.id %>
+        <% if confirm_current_user %>
           <div class='edit_board_btn mr10' style='display: inline; float: right;'>
             <%= link_to board_path, method: :delete, data: { confirm: '本当に消すの？' } do %>
               <i class='fa fa-trash mr10'></i>
