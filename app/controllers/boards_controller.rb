@@ -1,5 +1,6 @@
 class BoardsController < GeneralController
-  before_action :ensure_correct_user, only: :edit
+  before_action :set_board,only: %i[show edit update destroy ensure_correct_user confirm_current_user]
+  before_action :ensure_correct_user, only: %i[edit destroy]
 
   def index
     @boards = Board.all.order(created_at: 'desc').page(params[:page]).per(5)
@@ -10,7 +11,6 @@ class BoardsController < GeneralController
   end
 
   def show
-    @board = Board.find_by(id: params[:id])
     @comment = Comment.new
     @comments = @board.comments.all.order(created_at: :desc).page(params[:page]).per(5)
   end
@@ -26,14 +26,10 @@ class BoardsController < GeneralController
   end
 
   def edit
-    @board = Board.find_by(id: params[:id])
   end
 
   def update
-    @board = Board.find_by(id: params[:id])
-    @board.update(board_params)
-
-    if @board.save
+    if @board.update(board_params)
       redirect_to boards_path, success: '投稿内容を編集しました。'
     else
       flash.now[:danger] = 'もう一度入力してください。'
@@ -42,10 +38,9 @@ class BoardsController < GeneralController
   end
 
   def destroy
-    @board = Board.find_by(id: params[:id])
     @board.destroy
     flash[:success] = '投稿を削除しました'
-    redirect_to boards_path, success: "掲示板: #{ @board.title }の削除が完了しました"
+    redirect_to boards_path, success: "掲示板: #{@board.title}の削除が完了しました"
   end
 
   private
@@ -55,9 +50,16 @@ class BoardsController < GeneralController
   end
 
   def ensure_correct_user
-    @board = Board.find_by(id: params[:id])
-    if @board.user_id != @current_user.id
-      redirect_to boards_path, danger: '権限がありません'
+    if @board.user_id != current_user then redirect_to boards_path, danger: '権限がありません' end
+  end
+
+  def confirm_current_user
+    if @board.user_id == current_user
     end
   end
+
+  def set_board
+    @board = Board.find_by(id: params[:id])
+  end
+  helper_method :confirm_current_user
 end
