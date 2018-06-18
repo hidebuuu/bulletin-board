@@ -14,7 +14,7 @@
             <% end %>
           </div>
         </div>
-        <% if confirm_current_user %>
+        <% if current_user.my_board?(@board.user_id) %>
           <div class='edit_board_btn mr10' style='display: inline; float: right;'>
             <%= link_to board_path, method: :delete, data: { confirm: '本当に消すの？' } do %>
               <i class='fa fa-trash mr10'></i>
@@ -72,4 +72,3 @@
   <% end %>
   <!-- ページネーション -->
   <%= paginate @comments %>
-
