@@ -6,4 +6,7 @@ class User < ApplicationRecord
   validates :password, presence: true
   validates :first_name, presence: true
   validates :last_name, presence: true
+  def my_board?(board_user_id)
+    id == board_user_id
+  end
 end
