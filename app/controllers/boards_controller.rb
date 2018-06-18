@@ -1,5 +1,5 @@
 class BoardsController < GeneralController
-  before_action :set_board, only: %i[show edit update destroy ensure_correct_user confirm_current_user]
+  before_action :set_board, only: %i[show edit update destroy ensure_correct_user]
   before_action :ensure_correct_user, only: %i[edit destroy]
 
   def index
@@ -49,16 +49,10 @@ class BoardsController < GeneralController
   end
 
   def ensure_correct_user
-    if @board.user_id != current_user then redirect_to boards_path, danger: '権限がありません' end
-  end
-
-  def confirm_current_user
-    if @board.user_id == current_user
-    end
+    redirect_to boards_path, danger: '権限がありません' if @board.user_id != current_user
   end
 
   def set_board
     @board = Board.find_by(id: params[:id])
   end
-  helper_method :confirm_current_user
 end
