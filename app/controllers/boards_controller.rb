@@ -45,7 +45,7 @@ class BoardsController < GeneralController
     @board = Board.find_by(id: params[:id])
     @board.destroy
     flash[:success] = '投稿を削除しました'
-    redirect_to boards_path, success: "掲示板: #{@board.title}の削除が完了しました"
+    redirect_to boards_path, success: "掲示板: #{ @board.title }の削除が完了しました"
   end
 
   private
