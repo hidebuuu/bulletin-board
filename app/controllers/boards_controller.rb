@@ -1,5 +1,5 @@
 class BoardsController < GeneralController
-  before_action :set_board,only: %i[show edit update destroy ensure_correct_user confirm_current_user]
+  before_action :set_board, only: %i[show edit update destroy ensure_correct_user confirm_current_user]
   before_action :ensure_correct_user, only: %i[edit destroy]
 
   def index
@@ -25,8 +25,7 @@ class BoardsController < GeneralController
     end
   end
 
-  def edit
-  end
+def edit; end
 
   def update
     if @board.update(board_params)
