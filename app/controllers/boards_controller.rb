@@ -1,5 +1,5 @@
 class BoardsController < GeneralController
-  before_action :set_board, only: %i[index show edit update destroy ensure_correct_user]
+  before_action :set_board, only: %i[show edit update destroy ensure_correct_user]
   before_action :ensure_correct_user, only: %i[edit destroy]
 
   def index
@@ -50,7 +50,7 @@ class BoardsController < GeneralController
   end
 
   def ensure_correct_user
-    redirect_to boards_path, danger: '権限がありません' if @board.user_id != current_user
+    redirect_to boards_path, danger: '権限がありません' if @board.user_id != current_user.id
   end
 
   def set_board
