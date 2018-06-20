@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :users, only: %i[new create]
   resources :boards, only: %i[index new create show edit update destroy] do
     resources :comments, only: %i[create]
+    resources :follows, only: %i[create destroy]
   end
   get 'login' => 'user_sessions#new'
   post 'login' => 'user_sessions#create'
