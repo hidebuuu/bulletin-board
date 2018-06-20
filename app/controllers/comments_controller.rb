@@ -3,7 +3,7 @@ class CommentsController < GeneralController
   def create
     @board = Board.find_by(id: params[:board_id])
     @comment = @board.comments.new(comment_params)
-    if @comments.save
+    if @comment.save
       redirect_to board_path(@comment.board)
     end
   end
