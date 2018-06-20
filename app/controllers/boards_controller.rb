@@ -1,9 +1,9 @@
 class BoardsController < GeneralController
-  before_action :set_board, only: %i[show edit update destroy ensure_correct_user]
+  before_action :set_board, only: %i[index show edit update destroy ensure_correct_user]
   before_action :ensure_correct_user, only: %i[edit destroy]
 
   def index
-    @boards = Board.all.order(created_at: 'desc').page(params[:page]).per(5)
+    @boards = Board.all.order(created_at: 'desc').page(params[:page]).per(8)
   end
 
   def new
@@ -13,6 +13,7 @@ class BoardsController < GeneralController
   def show
     @comment = Comment.new
     @comments = @board.comments.all.order(created_at: :desc).page(params[:page]).per(5)
+    @follow = current_user.my_follow(@board)
   end
 
   def create
