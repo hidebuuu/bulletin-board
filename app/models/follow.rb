@@ -3,5 +3,4 @@ class Follow < ApplicationRecord
   validates :board_id, {presence: true}
   belongs_to :user
   belongs_to :board
-
 end
