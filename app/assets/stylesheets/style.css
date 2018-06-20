@@ -2513,7 +2513,13 @@ article.single-post p {
 }
 
 
+.like-btn {
+  color: #8899a6;
+}
 
+.like-btn-unlike {
+  color: #ff2581;
+}
 
 /*# sourceMappingURL=maps/style.css.map */
 
