@@ -1,0 +1,13 @@
+<div class="row mt15">
+  <% if @boards.present? %>
+    <% @boards.each do |board| %>
+      <%= render 'shared/board_contents', board: board, follow: current_user.my_follow(board) %>
+    <% end %>
+  <% else %>
+    <div class="ml15 mr15 card text-center mb60" style="width:100%; padding:15px;">
+      <div class="card-block">フォロー中の掲示板はありません></div>
+    </div>
+  <% end %>
+</div>
+
+<%= paginate @boards %>

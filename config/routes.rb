@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :comments, only: %i[create]
     resources :follows, only: %i[create destroy]
   end
+  resources :follows, only: %i[index]
   get 'login' => 'user_sessions#new'
   post 'login' => 'user_sessions#create'
   delete 'logout' => 'user_sessions#destroy'
