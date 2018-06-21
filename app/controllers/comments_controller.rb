@@ -3,8 +3,10 @@ class CommentsController < GeneralController
   def create
     @board = Board.find_by(id: params[:board_id])
     @comment = @board.comments.new(comment_params)
-    if @comments.save
-      redirect_to board_path(@comment.board)
+    if @comment.save
+      redirect_to board_path(@comment.board), success: 'コメントを投稿しました。'
+    else
+      redirect_to board_path(@comment.board), danger: '空ではコメントできません。'
     end
   end
 

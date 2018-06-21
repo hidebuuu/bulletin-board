@@ -15,7 +15,7 @@
 <!-- 掲示板一覧 -->
 <div class="row mt15">
   <% @boards.each do |board| %>
-    <%= render 'shared/board_contents', board: board %>
+    <%= render 'shared/board_contents', board: board, follow: current_user.my_follow(board) %>
   <% end %>
 </div>
 

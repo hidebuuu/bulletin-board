@@ -10,21 +10,18 @@
           <h4 class="card-title" style='display: inline;'>
             <%= link_to board.title , board_path(board) %>
           </h4>
-          <div>
-            <div class="product-ratings" style='display: inline; float: right;'>
-              <%= link_to '#' , class:'selected', style:'font-size: 16px;' do %>
-                <i class='fa fa-star'></i>
-              <% end %>
-            </div>
-          </div>
-          <div class='edit_board_btn mr10' style='display: inline; float: right;'>
-            <%= link_to '#'  do %>
-              <i class='fas fa-trash-alt mr10' aria-hidden='true'></i>
+            <% if current_user.my_board?(board.user_id) %>
+              <div class='edit_board_btn mr10' style='display: inline; float: right;'>
+                <%= link_to board_path(board), method: :delete, data: { confirm: '本当に消すの？' } do %>
+                  <i class='fa fa-trash mr10'></i>
             <% end %>
-            <%= link_to '#' do %>
-              <i class='fas fa-pencil-alt'></i>
+                <%= link_to edit_board_path(board) do %>
+                  <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
             <% end %>
           </div>
+          <% else %>
+            <%= render 'shared/follow', board:board, follow:follow %>
+          <% end %>
           <ul class="list-inline product-meta">
             <li class="list-inline-item">
               <%= link_to '#' do %>

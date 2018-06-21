@@ -3,7 +3,7 @@ class BoardsController < GeneralController
   before_action :ensure_correct_user, only: %i[edit destroy]
 
   def index
-    @boards = Board.all.order(created_at: 'desc').page(params[:page]).per(5)
+    @boards = Board.all.order(created_at: 'desc').page(params[:page]).per(8)
   end
 
   def new
@@ -13,6 +13,7 @@ class BoardsController < GeneralController
   def show
     @comment = Comment.new
     @comments = @board.comments.all.order(created_at: :desc).page(params[:page]).per(5)
+    @follow = current_user.my_follow(@board)
   end
 
   def create
@@ -49,7 +50,7 @@ class BoardsController < GeneralController
   end
 
   def ensure_correct_user
-    redirect_to boards_path, danger: '権限がありません' if @board.user_id != current_user
+    redirect_to boards_path, danger: '権限がありません' if @board.user_id != current_user.id
   end
 
   def set_board
