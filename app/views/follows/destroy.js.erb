@@ -1,0 +1,5 @@
+$("#follow_button-<%= @board.id %>").html("<%= escape_javascript(render('shared/follow', board:@board, follow:current_user.my_follow(@board))) %>");
+
+if($('#hidden_field').length) {
+  $("#follow_content-<%=@board.id%>").remove();
+}

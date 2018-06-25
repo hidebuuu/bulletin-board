@@ -1,17 +1,13 @@
 <% if current_user.my_follow(board).present? %>
-  <div>
     <div class="product-ratings" style='display: inline; float: right;'>
-      <%= link_to  board_follow_path(board,follow), method: :delete, class:'selected', style:'font-size: 16px;' do %>
+      <%= link_to  board_follow_path(board,follow), method: :delete, class:'selected', style:'font-size: 16px;' , remote: true do %>
         <span class="fa fa-heart like-btn-unlike"></span>
       <% end %>
     </div>
-  </div>
 <% else %>
-  <div>
     <div class="product-ratings" style='display: inline; float: right;'>
-      <%= link_to board_follows_path(board), method: :post, class:'selected', style:'font-size: 16px;' do %>
+      <%= link_to board_follows_path(board), method: :post, class:'selected', style:'font-size: 16px;' , remote: true do %>
         <span class="fa fa-heart like-btn"></span>
       <% end %>
     </div>
-  </div>
 <% end %>
