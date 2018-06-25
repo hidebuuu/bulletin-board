@@ -10,18 +10,18 @@ class FollowsController < ApplicationController
     if @follow.save
       @board = @follow.board
       respond_to do |format|
-      format.html { redirect_to :back }
-      format.js
+        format.html { redirect_to :back }
+        format.js
       end
     end
   end
 
   def destroy
     if @follow.destroy
-      @board =  @follow.board
+      @board = @follow.board
       respond_to do |format|
-      format.html { redirect_to :back }
-      format.js
+        format.html { redirect_to :back }
+        format.js
       end
     end
   end
