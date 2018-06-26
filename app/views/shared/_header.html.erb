@@ -15,7 +15,7 @@
             <li class="nav-item dropdown dropdown-slide">
               <%= link_to t('application.bulletin_board'), boards_path, {
                 class: 'nav-link dropdown-toggle', data: { toggle: 'dropdown' }, aria: { haspopup:  'true', expanded: 'false' } } %>
-                <span><i class="fa fa-angle-down"></i></span>
+              <span><i class="fa fa-angle-down"></i></span>
               <div class="dropdown-menu dropdown-menu-right">
                 <%= link_to t('application.bulletin_board_list'), boards_path, class: "dropped-item" %>
                 <%= link_to t('application.create_bulletin_board'), new_board_path , class: "dropdown-item" %>
@@ -24,8 +24,8 @@
 
             <li class="nav-item dropdown dropdown-slide">
               <%= link_to t('application.follow'), follows_path, {
-               class: 'nav-link dropdown-toggle', data: { toggle: 'dropdown' }, aria: { haspopup:  'true' , expanded: 'false' } }%>
-                <span><i class="fa fa-angle-down"></i></span>
+                class: 'nav-link dropdown-toggle', data: { toggle: 'dropdown' }, aria: { haspopup:  'true' , expanded: 'false' } }%>
+              <span><i class="fa fa-angle-down"></i></span>
               <div class="dropdown-menu dropdown-menu-right">
                 <%= link_to t('application.follow_list'), follows_path , class: "dropdown-item" %>
               </div>
