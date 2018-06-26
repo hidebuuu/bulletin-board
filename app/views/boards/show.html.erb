@@ -16,7 +16,7 @@
             <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
           <% end %>
         <% else %>
-        <div id="follow_button-<%= @board.id %>">
+        <div id="follow-button-<%= @board.id %>">
           <%= render 'shared/follow', board:@board, follow:@follow %>
         </div>
         <% end %>

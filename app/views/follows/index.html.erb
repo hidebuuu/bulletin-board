@@ -1,12 +1,10 @@
-<div class="row mt15" id="hidden_field" if params[:controller]= "follows" && params[:action]= "index" >
+<div class="row mt15" id="follow-field" whether_follow_index >
 <% if @boards.present? %>
   <% @boards.each do |board| %>
       <%= render 'shared/board_contents', board: board, follow: current_user.my_follow(board) %>
   <% end %>
   <% else %>
-    <div class="ml15 mr15 card text-center mb60" style="width:100%; padding:15px;">
-      <div class="card-block">フォロー中の掲示板はありません></div>
-    </div>
+    <%= render 'shared/non_board' %>
   <% end %>
 </div>
 
