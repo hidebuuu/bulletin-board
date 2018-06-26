@@ -1,4 +1,4 @@
-<div class="row mt15" id="follow-field" whether_follow_index >
+<div class="row mt15" id="follow-field" >
 <% if @boards.present? %>
   <% @boards.each do |board| %>
       <%= render 'shared/board_contents', board: board, follow: current_user.my_follow(board) %>
