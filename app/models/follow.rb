@@ -5,7 +5,7 @@ class Follow < ApplicationRecord
   belongs_to :board
 
   def whether_follow_index
-    if params[:controller] == "follows" && params[:action] == "index"
+    if params[:controller] == 'follows' && params[:action] == 'index'
     end
   end
 end
