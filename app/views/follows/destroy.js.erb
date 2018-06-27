@@ -1,0 +1,9 @@
+$("#follow-button-<%= @board.id %>").html("<%= j(render('shared/follow', board:@board, follow:current_user.my_follow(@board))) %>");
+
+if($('#follow-field').length >= 1) {
+  $("#follow-content-<%= @board.id %>").remove();
+}
+
+if($('.product-item').length == 0) {
+  $('#follow-field').html("<%= j(render partial: 'shared/non_board') %>");
+}

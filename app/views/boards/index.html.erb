@@ -1,4 +1,3 @@
-
 <div class="advance-search">
   <form>
     <div class="row">
@@ -13,7 +12,7 @@
 </div>
 
 <!-- 掲示板一覧 -->
-<div class="row mt15">
+<div class="row mt15" >
   <% @boards.each do |board| %>
     <%= render 'shared/board_contents', board: board, follow: current_user.my_follow(board) %>
   <% end %>

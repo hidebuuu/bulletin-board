@@ -1,0 +1,1 @@
+$("#follow-button-<%= @board.id %>").html("<%= j(render('shared/follow', board:@board, follow:current_user.my_follow(@board))) %>");
