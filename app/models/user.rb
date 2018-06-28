@@ -15,8 +15,4 @@ class User < ApplicationRecord
   def my_follow(board)
     follows.find_by(user_id: id, board_id: board.id)
   end
-
-  def my_image
-      image_url(:thumb)
-  end
 end
