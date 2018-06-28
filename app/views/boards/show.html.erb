@@ -29,6 +29,7 @@
     </div>
     <p> <%= @board.description %></p>
   </article>
+</div>
   <!-- コメントフォーム -->
 <div class="block comment">
   <h4>投稿する</h4>
@@ -37,7 +38,7 @@
   <!-- コメントエリア -->
 <div id='comment_area'>
   <% @comments.each do |comment| %>
-    <%= render 'shared/comment_list' , comment:comment, board:@board%>
+    <%= render 'shared/comment_list' , comment:comment, board:@board %>
   <% end %>
 </div>
   <!-- ページネーション -->
