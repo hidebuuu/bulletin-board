@@ -58,5 +58,6 @@ gem 'carrierwave'
 gem 'draper'
 gem "font-awesome-rails"
 gem 'kaminari'
+gem 'ransack'
 gem 'sass-rails'
 gem 'sorcery'
