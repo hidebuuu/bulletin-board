@@ -6,6 +6,7 @@ class CommentsController < GeneralController
     @comment = @board.comments.new(comment_params)
     if @comment.save
       respond_to do |format|
+        format.html { redirect_to :back }
         format.js
       end
     end
@@ -13,20 +14,30 @@ class CommentsController < GeneralController
 
   def edit
     respond_to do |format|
+      format.html { redirect_to :back }
       format.js
     end
   end
 
   def update
-    @comment.update(comment_params)
-    respond_to do |format|
-      format.js
+    if @comment.update(comment_params)
+      respond_to do |format|
+        format.html { redirect_to :back }
+        format.js
+      end
+    else
+      @comment = Comment.find(params[:id])
+      respond_to do |format|
+        format.html { redirect_to :back }
+        format.js
+      end
     end
   end
 
   def destroy
     @comment.destroy
     respond_to do |format|
+      format.html { redirect_to :back }
       format.js
     end
   end
