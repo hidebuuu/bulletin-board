@@ -21,10 +21,10 @@ class CommentsController < GeneralController
 
   def update
     set_comment if !@comment.update(comment_params)
-      respond_to do |format|
+    respond_to do |format|
         format.html { redirect_to :back }
         format.js
-      end
+    end
   end
 
   def destroy
