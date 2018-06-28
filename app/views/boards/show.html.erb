@@ -1,4 +1,4 @@
-<div class="col-md-10 offset-md-1 col-lg-10 offset-lg-1">
+<div class="col-md-10 offset-md-1 col-lg-10 offset-lg-1" >
   <!-- 掲示板内容 -->
   <article class="single-post">
     <div class='row'>
@@ -30,42 +30,15 @@
     <p> <%= @board.description %></p>
   </article>
   <!-- コメントフォーム -->
+<div class="block comment">
+  <h4>投稿する</h4>
   <%= render 'shared/comment' %>
+</div>
   <!-- コメントエリア -->
+<div id='comment_area'>
   <% @comments.each do |comment| %>
-  <div id='comment_area'>
-    <div class="widget dashboard-container my-adslist" id="comment<%= comment.id %>">
-      <table class="table product-dashboard-table">
-        <tr>
-          <td class="product-thumb">
-            <%= image_tag 'sample.jpg' , class:'rounded-circle', width:'50px' %>
-          </td>
-          <td class="product-details">
-            <h3 class="title"><%= comment.user.decorate.full_name %></h3>
-            <div class="comment_text">
-              <%= comment.content %>
-            </div>
-          </td>
-          <% if comment.user_id == current_user.id %>
-          <td class="action" data-title="Action">
-            <ul class="list-inline justify-content-center" style='float: right;'>
-              <li class="list-inline-item edit_comment_btn">
-                <%= button_tag  type:'button' , class:'edit' do %>
-                  <i class='fa fa-clipboard'></i>
-                <% end %>
-              </li>
-              <li class="list-inline-item">
-                <%= link_to '#' , class: 'delete' do %>
-                  <i class='fa fa-trash'></i>
-                <% end %>
-          <% end %>
-              </li>
-            </ul>
-          </td>
-        </tr>
-      </table>
-    </div>
-  </div>
+    <%= render 'shared/comment_list' , comment:comment, board:@board%>
   <% end %>
+</div>
   <!-- ページネーション -->
   <%= paginate @comments %>

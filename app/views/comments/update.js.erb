@@ -1,0 +1,2 @@
+$("#edit_comment_<%= @comment.id %>").hide();
+$("#comment-<%= @comment.id %>").html("<%= j(render('shared/comment_list', board:@board, comment:@comment)) %>");
