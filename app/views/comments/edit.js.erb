@@ -1,5 +1,5 @@
 $("#user-comment-<%= @comment.id %>").replaceWith("<%= j(render('shared/comment', board:@board, comment:@comment)) %>");
 $("#comment-submit-<%= @comment.id %>").remove();
-$(".edit_comment_btn_<%= @comment.id %>").click(function(){
+$("#edit_comment_btn_<%= @comment.id %>").click(function(){
   $("#edit_comment_<%= @comment.id %>").submit();
 });

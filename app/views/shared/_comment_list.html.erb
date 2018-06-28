@@ -2,7 +2,7 @@
   <table class="table product-dashboard-table">
     <tr>
       <td class="product-thumb">
-        <%= image_tag 'sample.jpg' , class:'rounded-circle', width:'50px' %>
+        <%= image_tag comment.user.decorate.user_image , class:'rounded-circle', width:'50px' %>
       </td>
       <td class="product-details">
         <h3 class="title"><%= comment.user.decorate.full_name %></h3>
@@ -13,7 +13,7 @@
       <% if comment.user_id == current_user.id %>
         <td class="action" data-title="Action">
           <ul class="list-inline justify-content-center" style='float: right;'>
-             <li class="list-inline-item edit_comment_btn_<%= comment.id %>">
+             <li class="list-inline-item edit_comment_btn" id="edit_comment_btn_<%= comment.id %>">
               <%= link_to edit_board_comment_path(board, comment) , class:'edit', remote: true do %>
                 <i class='fa fa-clipboard'></i>
               <% end %>
