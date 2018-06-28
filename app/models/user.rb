@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  mount_uploader :image, ImageUploader
   authenticates_with_sorcery!
   has_many :boards, dependent: :destroy
   has_many :comments, dependent: :destroy
@@ -13,5 +14,9 @@ class User < ApplicationRecord
 
   def my_follow(board)
     follows.find_by(user_id: id, board_id: board.id)
+  end
+
+  def my_image
+      image_url(:thumb)
   end
 end
