@@ -18,10 +18,10 @@ class CommentsController < GeneralController
   end
 
   def update
-     @comment.update(comment_params)
-     respond_to do |format|
+    @comment.update(comment_params)
+    respond_to do |format|
       format.js
-     end
+    end
   end
 
   def destroy
@@ -36,7 +36,6 @@ class CommentsController < GeneralController
   def comment_params
     params.require(:comment).permit(:content).merge(user_id: current_user.id, board_id: params[:board_id])
   end
-
 
   def set_comment
     @comment = Comment.find(params[:id])
