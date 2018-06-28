@@ -3,7 +3,8 @@ class BoardsController < GeneralController
   before_action :ensure_correct_user, only: %i[edit destroy]
 
   def index
-    @boards = Board.all.order(created_at: 'desc').page(params[:page]).per(8)
+    @q = Board.ransack(params[:q])
+    @boards = @q.result(distinct: true).page(params[:page])
   end
 
   def new
