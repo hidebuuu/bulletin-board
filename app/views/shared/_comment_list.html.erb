@@ -1,0 +1,31 @@
+<div class="widget dashboard-container my-adslist" id="comment-<%= comment.id %>">
+  <table class="table product-dashboard-table">
+    <tr>
+      <td class="product-thumb">
+        <%= image_tag 'sample.jpg' , class:'rounded-circle', width:'50px' %>
+      </td>
+      <td class="product-details">
+        <h3 class="title"><%= comment.user.decorate.full_name %></h3>
+        <div class="comment_text" id= 'user-comment-<%= comment.id %>'>
+          <%= comment.content %>
+        </div>
+      </td>
+      <% if comment.user_id == current_user.id %>
+        <td class="action" data-title="Action">
+          <ul class="list-inline justify-content-center" style='float: right;'>
+             <li class="list-inline-item edit_comment_btn_<%= comment.id %>">
+              <%= link_to edit_board_comment_path(board, comment) , class:'edit', remote: true do %>
+                <i class='fa fa-clipboard'></i>
+              <% end %>
+            </li>
+            <li class="list-inline-item">
+              <%= link_to board_comment_path(board,comment), method: :delete , class: 'delete', remote: true do %>
+                <i class='fa fa-trash'></i>
+              <% end %>
+      <% end %>
+            </li>
+          </ul>
+        </td>
+    </tr>
+  </table>
+</div>
