@@ -1,0 +1,3 @@
+$(".form-control").val('')
+$("#comment_area").prepend("<%= j(render 'shared/comment_list',{ board: @board, comment: @comment }) %>"
+);
