@@ -1,20 +1,26 @@
 <div class="advance-search">
-  <form>
+  <%= search_form_for @q  do |f| %>
     <div class="row">
       <div class="col-lg-12 col-md-12">
         <div class="block d-flex">
-          <input type='text' name='title_or_description_cont' class='form-control mb-2 mr-sm2 mb-sm0 mr5' placeholder=<%= t('.search_word')%> >
-          <input type='submit' name='commit' value=<%= t('.search') %> class='btn btn-main'>
+          <%= f.text_field :title_or_description_cont, class: "form-control mb-2 mr-sm2 mb-sm0 mr5", placeholder: t('.search_word')  %>
+          <%= f.submit :検索, class:"btn btn-main" %>
         </div>
       </div>
     </div>
-  </form>
+  <% end %>
 </div>
 
 <!-- 掲示板一覧 -->
 <div class="row mt15" >
-  <% @boards.each do |board| %>
-    <%= render 'shared/board_contents', board: board, follow: current_user.my_follow(board) %>
+  <% if @boards.present? %>
+    <% @boards.each do |board| %>
+      <%= render 'shared/board_contents', board: board, follow: current_user.my_follow(board) %>
+    <% end %>
+  <% else %>
+    <div class="ml15 mr15 card text-center mb60" style="width:100%; padding:15px;">
+      <div class="card-block">掲示板がありません</div>
+    </div>
   <% end %>
 </div>
 
