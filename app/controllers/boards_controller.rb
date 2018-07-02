@@ -1,6 +1,7 @@
 class BoardsController < GeneralController
-  before_action :set_board, only: %i[show edit update destroy ensure_correct_user]
+  before_action :set_board
   before_action :ensure_correct_user, only: %i[edit destroy]
+  after_action :create_notification, only: %i[create]
 
   def index
     @q = Board.ransack(params[:q])
@@ -56,5 +57,10 @@ class BoardsController < GeneralController
 
   def set_board
     @board = Board.find_by(id: params[:id])
+  end
+
+  def create_notification
+    return if @board == current_user
+    current_user.notifications.create(target: @board)
   end
 end
