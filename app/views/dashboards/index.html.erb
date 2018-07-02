@@ -5,10 +5,8 @@
         <div class="search-result bg-gray">
           <h2><%= t('.notice_list') %></h2>
           <strong><%= t('.display_condition') %></strong>
-          <select name="search">
-            <option value="A"><%= t('.show_all') %></option>
-            <option value="B"><%= t('.bulletin_board') %></option>
-            <option value="O"><%= t('.comment_only') %></option>
+           <%= select_tag "search", options_for_select(notification_select_options, selected: params[:condition]),
+            onchange:"window.location.replace('?condition='+this.value);"%>
           </select>
         </div>
       </div>
@@ -23,54 +21,29 @@
                   <div class="card-body">
                     <div class="widget dashboard-container my-adslist">
                       <table class="table product-dashboard-table">
-                        <tr>
-                          <td class="product-thumb">
-                            <%= image_tag "sample.jpg", class:'rounded-circle', width:'50px' %>
-                          </td>
-                          <td class="product-details">
-                            <h3 class="title", style='display: inline;'>
-                              <%= t('.notice') %>
-                            </h3>
-                            <p style='display: inline; float:right;'>
-                              2018/01/20
-                            </p>
-                            <div class="notification_text">
-                              <%= t('.comment_sample') %>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td class="product-thumb">
-                            <%= image_tag 'sample.jpg', class:'rounded-circle', width:'50px' %>
-                          </td>
-                          <td class="product-details">
-                            <h3 class="title", style='display: inline;'>
-                              <%= t('.new_bunlletin_board') %>
-                            </h3>
-                            <p style='display: inline; float:right;'>
-                              2018/01/20
-                            </p>
-                            <div class="notification_text">
-                              <%= t('.title_sumple') %>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td class="product-thumb">
-                            <%= image_tag 'sample.jpg', class:'rounded-circle', width:'50px' %>
-                          </td>
-                          <td class="product-details">
-                            <h3 class="title", style='display: inline;'>
-                              <%= t('.notice') %>
-                            </h3>
-                            <p style='display: inline; float:right;'>
-                              2018/01/20
-                            </p>
-                            <div class="notification_text">
-                              <%= t('.comment_sample') %>
-                            </div>
-                          </td>
-                        </tr>
+                        <% @notifications.each do |notification| %>
+                          <% if notification.should_notify? %>
+                            <tr>
+                              <td class="product-thumb">
+                                <%= image_tag notification.notification_image, class: 'rounded-circle', width: '50px' %>
+                              </td>
+                              <td class="product-details">
+                                <h3 class="title", style='display: inline;'>
+                                  <%= link_to notification.notification_link do %>
+                                    <%= notification.notification_comment %>
+                                  <% end %>
+                                </h3>
+                                <p style='display: inline; float:right;'>
+                                  <%= notification[:created_at].strftime("%Y-%m-%d") %>
+                                </p>
+                                <div class="notification_text">
+                                  <%= notification.title %>
+                                  <%= notification.notification_info %>
+                                </div>
+                              </td>
+                            </tr>
+                            <% end %>
+                        <% end %>
                       </table>
                     </div>
                   </div>
