@@ -4,7 +4,7 @@ class Notification < ApplicationRecord
 
   scope :board, -> { where(target_type: 'Board') }
   scope :comment, -> { where(target_type: 'Comment') }
-  scope :created_after, -> (time) { where("created_at > ?", time) }
+  scope :created_after,->(time) { where('created_at > ?', time) }
 
   def comment?
     target.is_a?(Comment)
