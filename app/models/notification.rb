@@ -22,7 +22,7 @@ class Notification < ApplicationRecord
       Notification.comment_search(user_id)
     else
       notifications = Notification.comment_search(user_id) + Notification.board_search(user_id)
-      Notification.where(id: notifications.map { |n| n.id })
+      Notification.where(id: notifications.map(&:id))
     end
   end
 end
