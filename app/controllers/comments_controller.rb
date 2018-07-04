@@ -1,5 +1,6 @@
 class CommentsController < GeneralController
-  before_action :set_comment, only: %i[edit update destroy]
+  after_action :create_notifications, only: %i[create]
+  before_action :set_comment, except: %i[create]
   before_action :set_board
 
   def create
@@ -47,5 +48,9 @@ class CommentsController < GeneralController
 
   def set_board
     @board = Board.find_by(id: params[:board_id])
+  end
+
+  def create_notifications
+    current_user.notifications.create(target: @comment)
   end
 end
