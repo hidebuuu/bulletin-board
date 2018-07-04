@@ -5,7 +5,6 @@ class Notification < ApplicationRecord
   scope :comment_search, ->(board_ids) { where(target_type: 'Comment').where(target_id: Comment.where(board_id: board_ids).pluck(:id)) }
   scope :created_after, ->(time) { where('created_at > ?', time) }
 
-
   def comment?
     target.is_a?(Comment)
   end
