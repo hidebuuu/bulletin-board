@@ -3,7 +3,7 @@ class Notification < ApplicationRecord
   belongs_to :target, polymorphic: true
 
   scope :board_search, ->(user_id) { where(target_type: 'Board').where.not(user_id: user_id) }
-  scope :comment_search, -> (user_id) { where(target_type: 'Comment').where.not(user_id: user_id) }
+  scope :comment_search, ->(user_id) { where(target_type: 'Comment').where.not(user_id: user_id) }
   scope :created_after, ->(time) { where('created_at > ?', time) }
 
   def comment?
@@ -13,6 +13,7 @@ class Notification < ApplicationRecord
   def board?
     target.is_a?(Board)
   end
+
   def self.notifications_by_condition(condition, user_id)
     case condition
     when 'board'
@@ -21,7 +22,7 @@ class Notification < ApplicationRecord
       Notification.comment_search(user_id)
     else
       notifications = Notification.comment_search(user_id) + Notification.board_search(user_id)
-      Notification.where(id: notifications.map {|n| n.id } )
+      Notification.where(id: notifications.map { |n| n.id })
     end
   end
 end

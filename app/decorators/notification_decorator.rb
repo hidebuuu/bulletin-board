@@ -2,7 +2,7 @@ class NotificationDecorator < ApplicationDecorator
   delegate_all
 
   def notification_image
-    comment? ?  notification.target.board.image : notification.target.image
+    comment? ? notification.target.board.image : notification.target.image
   end
 
   def notification_link
