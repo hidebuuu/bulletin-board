@@ -22,7 +22,6 @@
                     <div class="widget dashboard-container my-adslist">
                       <table class="table product-dashboard-table">
                         <% @notifications.each do |notification| %>
-                          <% if notification.should_notify? %>
                             <tr>
                               <td class="product-thumb">
                                 <%= image_tag notification.notification_image, class: 'rounded-circle', width: '50px' %>
@@ -42,7 +41,6 @@
                                 </div>
                               </td>
                             </tr>
-                            <% end %>
                         <% end %>
                       </table>
                     </div>
