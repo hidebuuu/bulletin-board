@@ -60,7 +60,6 @@ class BoardsController < GeneralController
   end
 
   def create_notification
-    return if @board == current_user
     current_user.notifications.create(target: @board)
   end
 end

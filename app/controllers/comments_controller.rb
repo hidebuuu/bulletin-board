@@ -51,7 +51,6 @@ class CommentsController < GeneralController
   end
 
   def create_notifications
-    return if @board.user == current_user
     current_user.notifications.create(target: @comment)
   end
 end
