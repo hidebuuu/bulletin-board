@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   end
   resources :follows, only: %i[index]
   resources :notifications, only: %i[index]
+  resources :password_resets, only: %i[new create edit update]
   get 'login' => 'user_sessions#new'
   post 'login' => 'user_sessions#create'
   delete 'logout' => 'user_sessions#destroy'
