@@ -5,7 +5,7 @@ class PasswordResetsController < GeneralController
   def create
     @user = User.find_by(email: params[:email])
     @user.deliver_reset_password_instructions!
-    redirect_to root_path, success: "パスワード再発行のメールを送信しました。"
+    redirect_to root_path, success: 'パスワード再発行のメールを送信しました。'
   end
 
   def edit
