@@ -1,0 +1,26 @@
+<section class="user-profile section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+        <div class="widget personal-info">
+          <h3 class="widget-header user">新パスワード入力</h3>
+            <%= form_for @user, url: password_reset_path(@token),  method: :put do |f| %>
+           <div class="form-group">
+              <%= f.label :email, 'メールアドレス' %><br />
+              <%= @user.email %>
+            </div>
+            <div class="form-group">
+              <%= f.label :password, 'パスワード' %><br />
+              <%= f.password_field :password, class: 'form-control' %>
+            </div>
+            <div class="form-group">
+              <%= f.label :password_confirmation, 'パスワード(確認) '%><br />
+              <%= f.password_field :password_confirmation, class: 'form-control' %>
+            </div>
+            <%= f.submit 'パスワードリセット', class: 'btn btn-transparent' %>
+          <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

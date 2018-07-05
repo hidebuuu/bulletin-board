@@ -1,4 +1,4 @@
-class FollowsController < ApplicationController
+class FollowsController < GeneralController
   before_action :set_follow, only: %i[destroy]
 
   def index

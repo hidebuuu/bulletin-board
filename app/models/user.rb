@@ -6,7 +6,8 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :follows, dependent: :destroy
   validates :email, presence: true
-  validates :password, presence: true
+  validates :password, presence: true, confirmation: true
+  validates :password_confirmation, presence: true
   validates :first_name, presence: true
   validates :last_name, presence: true
   def my_board?(board_user_id)

@@ -1,0 +1,18 @@
+<section class="user-profile section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+        <div class="widget personal-info">
+          <h3 class="widget-header user">パスワード再発行</h3>
+          <%= form_tag password_resets_path method: :post do %>
+            <div class="form-group">
+              <%= label_tag :メールアドレス %>
+              <%= text_field_tag :email, "", class:'form-control' %>
+            </div>
+            <%= submit_tag :パスワードリセットを申請する, class:"btn btn-transparent" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
