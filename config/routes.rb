@@ -11,5 +11,12 @@ Rails.application.routes.draw do
   get 'login' => 'user_sessions#new'
   post 'login' => 'user_sessions#create'
   delete 'logout' => 'user_sessions#destroy'
+
+ namespace :admin do
+    get    '/login' => 'user_sessions#new'
+    post   '/login' => 'user_sessions#create'
+    resources :dashboards, only: %i[index]
+  end
+  get '/not_admin' => 'admin#notadminuser'
   root 'dashboards#index'
 end
