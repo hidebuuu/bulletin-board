@@ -13,9 +13,9 @@ class User < ApplicationRecord
   validates :last_name, presence: true
 
   enum user_type: {
-  standard_user: 0,
-  admin_user: 1
-}
+    standard_user: 0,
+    admin_user: 1
+  }
 
   def my_board?(board_user_id)
     id == board_user_id
