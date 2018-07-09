@@ -18,3 +18,7 @@
 
 # CarrierWave
 /public/uploads
+
+# AdminLTE2
+app/assets/admin-lte/*
+node_modules/*
