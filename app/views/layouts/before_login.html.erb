@@ -1,30 +1,30 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <meta lang='ja'>
-    <title>Queueboard</title>
-    <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <meta lang='ja'>
+  <title>Queueboard</title>
+  <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+</head>
 
-  <body>
-    <header class="container header-top">
-  <div class="row">
-    <div class="col-md-12">
-      <nav class="navbar navbar-expand-lg  navigation">
-        <%= link_to "#" , class: 'nabvar-brand' do %>
-          <%= image_tag "board-app.png" , size:'254x68'%>
-        <% end %>
+<body>
+  <header class="container header-top">
+    <div class="row">
+      <div class="col-md-12">
+        <nav class="navbar navbar-expand-lg  navigation">
+          <%= link_to "#" , class: 'nabvar-brand' do %>
+          <%= image_tag "board-app.png" , size:'254x68' %>
+          <% end %>
         </nav>
+      </div>
     </div>
+  </header>
+  <%= render 'shared/flash_message' %>
+  <div class='mt30'>
+    <%= yield %>
   </div>
-</header>
-<%= render 'shared/flash_message' %>
-    <div class='mt30'>
-      <%= yield %>
-    </div>
-    <%= render 'shared/footer' %>
-  </body>
+  <%= render 'shared/footer' %>
+</body>
 </html>

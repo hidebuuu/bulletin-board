@@ -1,0 +1,48 @@
+<body class="hold-transition sidebar-mini">
+  <div class="wrapper">
+    <!-- Main Sidebar Container -->
+    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+      <!-- Brand Logo -->
+      <%= link_to admin_dashboards_path, class:"brand-link" do %>
+      <i class="fa fa-unlock-alt" aria-hidden="true"></i>
+        <span class="brand-text font-weight-light">BoardApp-admin</span>
+      <% end %>
+      <i class="fas fa-screwdriver"></i>
+
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <!-- Sidebar user panel (optional) -->
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+          <div class="info">
+            <%= link_to current_user.decorate.full_name, admin_users_path, class:"d-block" %>
+          </div>
+        </div>
+
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+           <li class="nav-item has-treeview menu-open">
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <%= link_to admin_boards_path, class:"nav-link" do %>
+                  <i class="fa fa-window-maximize" aria-hidden="true"></i>
+                  <p>掲示板一覧</p>
+                  <% end %>
+              </li>
+            </ul>
+            <li class="nav-item has-treeview menu-open">
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <%= link_to admin_users_path, class:"nav-link" do %>
+                    <i class="fa fa-users" aria-hidden="true"></i>
+                    <p>ユーザー一覧</p>
+                  <% end %>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
+      </div>
+      <!-- /.sidebar -->
+    </aside>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta lang='ja'>
+    <title>Queueboard</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+  </head>
+  <body>
+    <%= render 'shared/flash_message' %>
+    <div class='mt30'>
+      <%= yield %>
+    </div>
+  </body>
