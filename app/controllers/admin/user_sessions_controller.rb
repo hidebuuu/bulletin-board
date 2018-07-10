@@ -14,6 +14,11 @@ class Admin::UserSessionsController < AdminController
     end
   end
 
+  def destroy
+    logout
+    redirect_to admin_login_path, success: "ログアウトしました。"
+  end
+
   private
 
   def user_params
