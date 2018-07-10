@@ -6,8 +6,6 @@ class Admin::DashboardsController < AdminController
   private
 
   def admin_permit
-    if current_user.standard_user?
-      redirect_to not_admin_path
-    end
+    redirect_to not_admin_path if current_user.standard_user?
   end
 end
