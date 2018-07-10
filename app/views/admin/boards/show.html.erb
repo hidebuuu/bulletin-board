@@ -1,0 +1,21 @@
+<div class="content-wrapper">
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="col-md-6 mx-auto">
+        <div class="card">
+          <%= image_tag @board.image, class: "card-img-top" %>
+          <div class="card-body">
+            <div class="d-flex w-100 justify-content-between">
+              <h3 class="mb-1"><%= @board.title %></h3>
+              <small>作成日：<%= @board.created_at.strftime("%Y/%m/%d") %></small>
+            </div>
+            <p><%= @board.description %></p>
+            <%= link_to admin_board_path(@board), method: :delete,class: "btn btn-danger float-right", data: { confirm: '本当に消すの？' } do %>
+            <i class='fa fa-trash mr10'></i>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

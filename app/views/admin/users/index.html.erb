@@ -1,0 +1,62 @@
+<div class="content-wrapper">
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1 class="m-0 text-dark">ユーザー一覧</h1>
+        </div>
+        <div class="col-sm-6">
+          <!-- SEARCH FORM -->
+          <%= search_form_for @q, url:{ action: 'index' } do |f| %>
+          <div class="advance-search">
+            <div class="row">
+              <div class="col-lg-12 col-md-12">
+                <div class="block d-flex">
+                  <%= f.search_field :last_name_or_first_name_or_email_cont,class: 'form-control mb-2 mr-sm2 mb-sm0 mr5',
+                  placeholder: "検索ワード", type:"text" %>
+                  <%= f.submit :検索する, name: "commit", class: 'btn btn-info' %>
+                </div>
+              </div>
+            </div>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Main content -->
+  <% if @users.present? %>
+  <div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <table class="table">
+          <thead class="thead-light">
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">名前</th>
+              <th scope="col">Email</th>
+              <th scope="col">作成日</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @users.each do |user| %>
+            <tr>
+              <th scope="row"><%= user.id %></th>
+              <td><%= link_to user.decorate.full_name, admin_user_path(user) %></td>
+              <td><%= user.email %></td>
+              <td><%= user.created_at.strftime('%Y/%m/%d') %></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <% else %>
+  <div class="row mt15 text-center">
+    <div class="col-sm-12 col-lg-12">
+      <h2>該当するユーザーはいません。</h2>
+    </div>
+  </div>
+  <% end %>
+</div>
