@@ -16,7 +16,7 @@ class Admin::UserSessionsController < AdminController
 
   def destroy
     logout
-    redirect_to admin_login_path, success: "ログアウトしました。"
+    redirect_to admin_login_path, success: 'ログアウトしました。'
   end
 
   private

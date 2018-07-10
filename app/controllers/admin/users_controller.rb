@@ -10,7 +10,7 @@ class Admin::UsersController < AdminController
 
   def destroy
     @user.destroy
-    redirect_to admin_users_path, success:"ユーザーの削除が完了しました。"
+    redirect_to admin_users_path, success:'ユーザーの削除が完了しました。'
   end
 
   private
