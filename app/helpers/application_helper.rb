@@ -9,7 +9,7 @@ module ApplicationHelper
   end
 
   def error_messages(instance)
-    return if not instance.errors.any?
+    return if instance.errors.none?
     content_tag :div, class: 'container' do
       content_tag :div, class: 'alert alert-danger alert-dismissable' do
         concat button_tag 'x', class: 'close', data: { dismiss: 'alert' }, aria: { hidden: 'true' }
