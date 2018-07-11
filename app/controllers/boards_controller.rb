@@ -23,7 +23,6 @@ class BoardsController < GeneralController
     if @board.save
       redirect_to boards_path, success: t('.success')
     else
-      flash.now[:danger] = t('.danger')
       render :new
     end
   end
