@@ -1,4 +1,5 @@
 class Board < ApplicationRecord
+  acts_as_paranoid
   mount_uploader :image, ImageUploader
   belongs_to :user
   has_many :notifications, inverse_of: :target, as: :target, dependent: :destroy

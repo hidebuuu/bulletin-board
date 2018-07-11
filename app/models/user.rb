@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  acts_as_paranoid
   mount_uploader :image, ImageUploader
   authenticates_with_sorcery!
   has_many :notifications, dependent: :destroy
