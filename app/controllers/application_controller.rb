@@ -13,6 +13,6 @@ class ApplicationController < ActionController::Base
 
   def render_500(error = nil)
     logger.fatal "Rendering 500 with exception: #{error.try(:message) || ''}"
-    ender template: 'errors/error_500', status: :internal_server_error, content_type: 'text/html'
+    render template: 'errors/error_500', status: :internal_server_error, content_type: 'text/html'
   end
 end
