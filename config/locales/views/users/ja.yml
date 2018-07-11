@@ -7,7 +7,7 @@ ja:
       email: メールアドレス
       image: プロフィール画像
       password: パスワード
-      password_confimation: パスワード確認
+      password_confirmation: パスワード確認
       submit: 送信
       login: ログインはこちら
       forget_password: パスワードをお忘れの方はこちら

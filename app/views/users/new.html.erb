@@ -1,35 +1,36 @@
+<%= error_messages(@user) %>
 <div class="container col-md-10 offset-md-1 col-lg-8 offset-lg-2">
   <div class="widget change-password">
     <h3 class="widget-header user"><%= t('users.new.title') %></h3>
     <%= form_for @user do |f| %>
-      <div class="form-group">
-        <%= f.label User.human_attribute_name(:last_name) %>
-        <%= f.text_field :last_name , class:"form-control" %>
+    <div class="form-group">
+      <%= f.label User.human_attribute_name(:last_name) %>
+      <%= f.text_field :last_name , class:"form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :first_name %>
+      <%= f.text_field :first_name, class:"form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :email %>
+      <%= f.text_field :email, class:"form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :image %>
+      <%= f.file_field :image , class:"form-control-file d-inline mt15" %>
+      <div class='mt15'>
+        <%= image_tag "sample.jpg", class:'img-responsize' , size: '150x150', alt:'sample_image' %>
       </div>
-      <div class="form-group">
-        <%= f.label :first_name %>
-        <%= f.text_field :first_name, class:"form-control" %>
-      </div>
-      <div class="form-group">
-        <%= f.label :email %>
-        <%= f.text_field :email, class:"form-control" %>
-      </div>
-      <div class="form-group">
-        <%= f.label :image %>
-        <%= f.file_field :image , class:"form-control-file d-inline mt15" %>
-        <div class='mt15'>
-          <%= image_tag "sample.jpg", class:'img-responsize' , size: '150x150', alt:'sample_image' %>
-        </div>
-      </div>
-      <div class="form-group">
-        <%= f.label :password %>
-        <%= f.password_field :password, class:"form-control" %>
-      </div>
-      <div class="form-group">
-        <%= f.label :password_confirmation %>
-        <%= f.password_field :password_confirmation , class:"form-control" %>
-      </div>
-      <%= f.submit t('users.new.submit') , class:"btn btn-transparent" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :password %>
+      <%= f.password_field :password, class:"form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation , class:"form-control" %>
+    </div>
+    <%= f.submit t('users.new.submit') , class:"btn btn-transparent" %>
   </div>
   <% end %>
   <div class='text-center'>

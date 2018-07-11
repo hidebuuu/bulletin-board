@@ -1,9 +1,9 @@
 <% flash.each do |message_type, message| %>
 <div class='container'>
   <div class="alert alert-<%= message_type %> alert-dismissable">
-<i class="fas fa-check"></i>
-<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-<b><%= message %></b>
-　</div>
+    <i class="fas fa-check"></i>
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+    <b><%= message %></b>
+  </div>
 </div>
 <% end %>

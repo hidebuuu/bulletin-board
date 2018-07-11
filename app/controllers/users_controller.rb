@@ -11,7 +11,6 @@ class UsersController < GeneralController
     if @user.save
       redirect_to login_path, success: t('.success')
     else
-      flash.now[:danger] = t('.danger')
       render :new
     end
   end
