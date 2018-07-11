@@ -23,5 +23,5 @@ Rails.application.routes.draw do
   get '/not_admin' => 'admin#notadminuser'
   root 'dashboards#index'
 
-  #get '*path' => 'application#render_404'
+  # get '*path' => 'application#render_404'
 end
