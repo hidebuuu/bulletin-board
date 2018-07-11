@@ -1,11 +1,4 @@
-<% if @board.errors.any? %>
-<ul>
-  <% @board.errors.full_messages.each do |message| %>
-    <%= render 'shared/errors', message:message %>
-  <% end %>
-</ul>
-<% end %>
-
+<%= error_messages(@board) %>
 <div class="widget personal-info">
   <h3 class="widget-header user"><%= t('.form_title') %></h3>
   <%= render 'shared/form' %>

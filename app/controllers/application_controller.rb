@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   #    rescue_from ActionController::RoutingError, with: :render_404
   #    rescue_from Exception, with: :render_500
 
+<<<<<<< HEAD
   #    def render_404(error = nil)
   #      logger.info "Rendering 404 with exception: #{error.try(:message) || ''}"
   #      render template: 'errors/error_404', status: :not_found, content_type: 'text/html'
@@ -14,4 +15,19 @@ class ApplicationController < ActionController::Base
   #      logger.fatal "Rendering 500 with exception: #{error.try(:message) || ''}"
   #      render template: 'errors/error_500', status: :internal_server_error, content_type: 'text/html'
   #    end
+=======
+  rescue_from ActiveRecord::RecordNotFound, with: :render_404
+  rescue_from ActionController::RoutingError, with: :render_404
+  rescue_from Exception, with: :render_500
+
+  def render_404(error = nil)
+    logger.info "Rendering 404 with exception: #{error.try(:message) || ''}"
+    render template: 'errors/error_404', status: :not_found, content_type: 'text/html'
+  end
+
+  def render_500(error = nil)
+    logger.fatal "Rendering 500 with exception: #{error.try(:message) || ''}"
+    render template: 'errors/error_500', status: :internal_server_error, content_type: 'text/html'
+  end
+>>>>>>> 37f0af5cc0406f106ebf21b175cb2c9108038a8e
 end
